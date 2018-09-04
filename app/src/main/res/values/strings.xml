@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">KotlinRecyclerView</string>
+    <string name="item_clicked">Item clicked</string>
+</resources>
