@@ -6,6 +6,8 @@ import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity(), MyAdapter.ClickListener {
     override fun onItemClicked(item: String) {
@@ -22,7 +24,7 @@ class MainActivity : AppCompatActivity(), MyAdapter.ClickListener {
 
         myAdapter = MyAdapter(constructDataList(), this)
 
-        recyclerView = findViewById<RecyclerView>(R.id.rv_main).apply {
+        recyclerView = rv_main.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this@MainActivity)
             adapter = myAdapter
