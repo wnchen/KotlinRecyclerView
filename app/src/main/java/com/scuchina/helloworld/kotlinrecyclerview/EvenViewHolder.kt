@@ -12,5 +12,5 @@ class EvenViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         }
     }
 
-    val evenTextView = view.tv_content
+    private val evenTextView = view.tv_content!!
 }

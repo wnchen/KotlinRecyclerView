@@ -10,29 +10,23 @@ class MyAdapter(private val myData: List<String>, private val listener: ClickLis
         fun onItemClicked(item: String)
     }
 
-    private val ITEM_EVEN_TYPE = 0
+    private val itemeventype = 0
 
-    private val ITEM_ODD_TYPE = 1
+    private val itemoddtype = 1
 
-    override fun getItemViewType(position: Int): Int {
-        return if (position % 2 == 0) ITEM_EVEN_TYPE else ITEM_ODD_TYPE
-    }
+    override fun getItemViewType(position: Int) = if (position % 2 == 0) itemeventype else itemoddtype
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): RecyclerView.ViewHolder {
-        val vh: RecyclerView.ViewHolder
-        if (p1 == ITEM_EVEN_TYPE) {
-            val textView = LayoutInflater.from(p0.context).inflate(R.layout.item_row_even, p0, false)
-            vh = EvenViewHolder(textView)
-        } else {
+        return if (p1 != itemeventype) {
             val textView = LayoutInflater.from(p0.context).inflate(R.layout.item_row_odd, p0, false)
-            vh = OddViewHolder(textView)
+            OddViewHolder(textView)
+        } else {
+            val textView = LayoutInflater.from(p0.context).inflate(R.layout.item_row_even, p0, false)
+            EvenViewHolder(textView)
         }
-        return vh
     }
 
-    override fun getItemCount(): Int {
-        return myData.size
-    }
+    override fun getItemCount() = myData.size
 
     override fun onBindViewHolder(p0: RecyclerView.ViewHolder, p1: Int) {
         when (p0) {

@@ -12,5 +12,5 @@ class OddViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         }
     }
 
-    val oddTextView = view.tv_content
+    private val oddTextView = view.tv_content!!
 }
